@@ -2,7 +2,8 @@ extends Player
 class_name PLizard
 
 func _ready():
-	SCENE_WEAPON = globals.ENTITIES.WEAPONS.Sword.scene
+	if SCENE_WEAPON == null:
+		SCENE_WEAPON = globals.ENTITIES.WEAPONS.Sword.scene
 	pass
 	
 func _physics_process(delta):

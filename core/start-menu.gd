@@ -23,7 +23,7 @@ func _ready():
 	$rightArrow.play("default")
 	$leftArrow.play("default")
 	
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("ui_accept"):
 		if _selected == OPT_START:
 			# Let the player know what is happening

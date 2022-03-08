@@ -40,15 +40,19 @@ const ENTITIES = {
 		},
 		"WEAPONS": {
 			"Sword": {
-				"scene": preload("res://entities/weapons/sword.tscn")
+				"scene": preload("res://entities/weapons/Sword.tscn"),
+				"script": preload("res://entities/weapons/Sword.gd"),
 			},
 			"Daggers": {
-				"scene": preload("res://entities/weapons/Daggers.tscn")
+				"scene": preload("res://entities/weapons/Daggers.tscn"),
+				"script": preload("res://entities/weapons/Daggers.gd"),
 			},
 			"Wand": {
-				"scene": preload("res://entities/weapons/Wand.tscn")
+				"scene": preload("res://entities/weapons/Wand.tscn"),
+				"script": preload("res://entities/weapons/Wand.gd"),
 			}
 		}
 	}
 	
 var selectablePlayers = ENTITIES.PLAYERS.keys()
+var equipableWeapons = ENTITIES.WEAPONS.keys()
