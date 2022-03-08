@@ -47,7 +47,7 @@ func _process(delta):
 		if _selected == OPT_QUIT:
 			get_tree().paused = false
 			queue_free()
-			get_tree().change_scene("res://core/game-over.tscn")
+			get_tree().change_scene(globals.MENUS.GAME_OVER)
 			
 	# Handle UI selections of menu items
 	if Input.is_action_just_pressed("ui_down"):

@@ -8,47 +8,53 @@ var gold = 0
 var depth = 1
 var kills = 0
 
+const MENUS = {
+	"MAIN": "res://Menus/main.tscn",
+	"PAUSE_MENU": "res://Menus/pause-menu.tscn",
+	"START_MENU": "res://Menus/start-menu.tscn",
+	"GAME_OVER": "res://Menus/game-over.tscn"
+}
 
 const ENTITIES = {
-		"MONSTERS": {
-			"skeleton": {
-				"scene": preload("res://entities/monsters/monster.tscn"),
-				"script": preload("res://entities/monsters/monster-skel.gd")
-			},
-			"slime": {
-				"scene": preload("res://entities/monsters/monster.tscn"),
-				"script": preload("res://entities/monsters/monster-slime.gd")
-			},
-			"goblin": {
-				"scene": preload("res://entities/monsters/monster.tscn"),
-				"script": preload("res://entities/monsters/monster-goblin.gd")
-			}
+	"MONSTERS": {
+		"skeleton": {
+			"scene": preload("res://entities/monsters/monster.tscn"),
+			"script": preload("res://entities/monsters/monster-skel.gd")
 		},
-		"PLAYERS": {
-			"knight": {
-				"scene": preload("res://entities/players/player-knight.tscn")
-			},
-			"lizard": {
-				"scene": preload("res://entities/players/player-lizard.tscn")
-			},
-			"elf": {
-				"scene": preload("res://entities/players/player-elf.tscn")
-			},
-			"wizard": {
-				"scene": preload("res://entities/players/player-wizard.tscn")
-			}
+		"slime": {
+			"scene": preload("res://entities/monsters/monster.tscn"),
+			"script": preload("res://entities/monsters/monster-slime.gd")
 		},
-		"WEAPONS": {
-			"Sword": {
-				"scene": preload("res://entities/weapons/sword.tscn")
-			},
-			"Daggers": {
-				"scene": preload("res://entities/weapons/Daggers.tscn")
-			},
-			"Wand": {
-				"scene": preload("res://entities/weapons/Wand.tscn")
-			}
+		"goblin": {
+			"scene": preload("res://entities/monsters/monster.tscn"),
+			"script": preload("res://entities/monsters/monster-goblin.gd")
+		}
+	},
+	"PLAYERS": {
+		"knight": {
+			"scene": preload("res://entities/players/player-knight.tscn")
+		},
+		"lizard": {
+			"scene": preload("res://entities/players/player-lizard.tscn")
+		},
+		"elf": {
+			"scene": preload("res://entities/players/player-elf.tscn")
+		},
+		"wizard": {
+			"scene": preload("res://entities/players/player-wizard.tscn")
+		}
+	},
+	"WEAPONS": {
+		"Sword": {
+			"scene": preload("res://entities/weapons/sword.tscn")
+		},
+		"Daggers": {
+			"scene": preload("res://entities/weapons/Daggers.tscn")
+		},
+		"Wand": {
+			"scene": preload("res://entities/weapons/Wand.tscn")
 		}
 	}
-	
+}
+
 var selectablePlayers = ENTITIES.PLAYERS.keys()

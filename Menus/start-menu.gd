@@ -35,8 +35,8 @@ func _process(delta):
 			# Without this, the label change is never visible before the scene switch
 			yield(get_tree(), 'idle_frame')
 			# Now start the game by switching to the main scene
-			get_tree().change_scene("res://core/main.tscn")
-			
+			get_tree().change_scene(globals.MENUS.MAIN)
+			print(globals.MENUS.MAIN)
 		if _selected == OPT_EXIT:
 			get_tree().quit()
 			
