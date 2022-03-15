@@ -92,6 +92,7 @@ func _get_direction() -> Vector2:
 # Called when "hit" only bodies
 #
 func _on_Hitbox_body_entered(body: KinematicBody2D):
+	print(body)
 	# Calc direction vector between player and "thing"
 	var collision_dir: = (position - body.position).normalized()
 		

@@ -60,6 +60,7 @@ func _ready():
 				var t_cell = get_random_floor_cell(room["left"], room["top"], room["width"], room["height"])
 				treasure.position.x = t_cell.x * globals.GRID_SIZE
 				treasure.position.y = t_cell.y * globals.GRID_SIZE
+				treasure.add_to_group("treasure")
 				add_child(treasure)
 				continue
 				

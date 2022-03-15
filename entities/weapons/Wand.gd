@@ -1,16 +1,15 @@
 extends "res://entities/weapons/weapon.gd"
 const SCENE_BULLET = preload("res://entities/weapons/Bullet.tscn")
+var bullet = SCENE_BULLET.instance()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
 
 func facing(_attack_angle):
-	var b = SCENE_BULLET.instance()
-	add_child(b)
-	b.add_to_group("weapons")
-	b.transform = $Muzzle.transform
-	b._attack_angle = _attack_angle
+	add_child(bullet)
+	bullet.transform = $Muzzle.transform
+	bullet._attack_angle = _attack_angle
 	position.x = 8
 	position.y = 16
 	z_index = 11

@@ -1,4 +1,4 @@
 [gd_scene format=2]
 
-[node name="Sprite" type="Sprite"]
+[node name="Sprite" type="Sprite" groups=["treasure"]]
 position = Vector2( 8, 8 )

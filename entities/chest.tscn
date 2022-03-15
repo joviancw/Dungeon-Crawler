@@ -83,5 +83,6 @@ speed_scale = 2.0
 randomness = 0.31
 process_material = SubResource( 5 )
 texture = ExtResource( 4 )
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="finished" from="Sfx" to="." method="_on_Sfx_finished"]

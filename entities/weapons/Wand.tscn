@@ -6,7 +6,7 @@
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 2.99997
-height = 22.0001
+height = 18.0001
 
 [node name="Wand" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
@@ -16,9 +16,8 @@ scale = Vector2( 0.563178, 0.756765 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" parent="." index="1"]
-visible = false
 shape = SubResource( 1 )
 
 [node name="Muzzle" type="Position2D" parent="." index="4"]
-position = Vector2( -6.48499e-05, -18 )
+position = Vector2( -3.00006, -18 )
 rotation = -1.5708
