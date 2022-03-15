@@ -89,7 +89,7 @@ func _on_Hitbox_body_entered(body):
 
 			$SfxHit.pitch_scale = randf() + 0.8
 			$SfxHit.play(0.0)
-		# remove any projectiles
+		# remove any projectiles from Wand
 		if body.name == "Bullet":
 			body.queue_free()
 		
