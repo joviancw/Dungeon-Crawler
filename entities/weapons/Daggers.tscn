@@ -5,23 +5,22 @@
 [ext_resource path="res://assets/0x72_DungeonTilesetII_v1.4/frames/weapon_knife.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 1, 6.75 )
+extents = Vector2( 2.99998, 10.625 )
 
 [node name="Daggers" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
 [node name="Sprite" parent="." index="0"]
-scale = Vector2( 0.990125, 1.33047 )
+scale = Vector2( 1.60193, 2.15258 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" parent="." index="1"]
 visible = false
-rotation = 3.55271e-15
 
 [node name="Sprite2" type="Sprite" parent="." index="4"]
 light_mask = 0
 position = Vector2( 2, -6.5 )
-scale = Vector2( 1, 1.39439 )
+scale = Vector2( 1.52837, 2.13115 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="." index="5"]

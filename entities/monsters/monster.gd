@@ -75,6 +75,7 @@ func _on_SfxDeath_finished():
 func _on_Hitbox_body_entered(body):
 	# When hit by weapon
 	if body.is_in_group("weapons"):
+		print(body)
 		# and *not* recoiling - take damage
 		if _recoil_countdown < 0:
 			$Particles2D.one_shot = true
@@ -89,5 +90,6 @@ func _on_Hitbox_body_entered(body):
 			$SfxHit.pitch_scale = randf() + 0.8
 			$SfxHit.play(0.0)
 		# remove any projectiles
-		body.queue_free()
+		if body.name == "Bullet":
+			body.queue_free()
 		

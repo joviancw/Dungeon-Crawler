@@ -4,7 +4,7 @@
 [ext_resource path="res://assets/sfx/swipe.wav" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 1, 5.67424 )
+extents = Vector2( 2.99454, 13.4585 )
 
 [sub_resource type="Animation" id=3]
 length = 0.001

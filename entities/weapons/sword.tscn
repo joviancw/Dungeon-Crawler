@@ -10,4 +10,5 @@ load_path = "res://.import/weapon_red_gem_sword.png-0b483d5451a3ded780db39f42093
 script = ExtResource( 2 )
 
 [node name="Sprite" parent="." index="0"]
+scale = Vector2( 1.61737, 1.61737 )
 texture = SubResource( 1 )
