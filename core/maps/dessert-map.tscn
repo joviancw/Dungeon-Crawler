@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://core/maps/map.gd" type="Script" id=1]
+[ext_resource path="res://core/maps/dessert-map.gd" type="Script" id=1]
 [ext_resource path="res://resources/dessert-tiles.tres" type="TileSet" id=2]
 
 [node name="Map" type="TileMap"]

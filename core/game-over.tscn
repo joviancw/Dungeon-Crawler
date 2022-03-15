@@ -32,10 +32,10 @@ margin_top = 80.0
 margin_right = 23.0
 margin_bottom = 205.0
 rect_scale = Vector2( 2, 2 )
-custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0.972549, 0.498039, 0.0352941, 1 )
 custom_colors/font_outline_modulate = Color( 0.733333, 0.117647, 0.117647, 1 )
 custom_constants/shadow_offset_x = 0
+custom_fonts/font = ExtResource( 3 )
 text = "You Died !"
 align = 1
 valign = 1
@@ -49,10 +49,10 @@ margin_left = -270.0
 margin_top = -116.0
 margin_right = 17.0
 margin_bottom = 265.0
-custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0.298981, 0.757813, 0.738148, 1 )
 custom_colors/font_outline_modulate = Color( 0.733333, 0.117647, 0.117647, 1 )
 custom_constants/shadow_offset_x = 0
+custom_fonts/font = ExtResource( 3 )
 text = "Depth:
 Gold:
 Kills:"

@@ -5,8 +5,8 @@ extends Node
 
 const SCENE_EXIT = preload("res://entities/exit.tscn")
 
-const SCENE_MAP = preload("res://core/maps/map.tscn")
-
+#const SCENE_MAP = preload("res://core/maps/map.tscn")
+const SCENE_MAP = preload("res://core/maps/dessert-map.tscn")
 
 
 
