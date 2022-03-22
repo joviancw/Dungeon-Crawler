@@ -3,7 +3,7 @@ extends TileMap
 # Game main map, instanced as a singleton 
 
 const MAP_SIZE = 48        # Size of the map, which is always square
-const MAX_DEPTH = 4        # Recursion depth when generating
+const MAX_DEPTH = 2        # Recursion depth when generating
 
 # TileSet indexes for walls and floors
 const TILE_IDX_UNSET = -1
