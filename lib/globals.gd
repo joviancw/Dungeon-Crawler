@@ -50,6 +50,10 @@ const ENTITIES = {
 			"Wand": {
 				"scene": preload("res://entities/weapons/Wand.tscn"),
 				"script": preload("res://entities/weapons/Wand.gd"),
+			},
+			"Bow": {
+				"scene": preload("res://entities/weapons/Bow.tscn"),
+				"script": preload("res://entities/weapons/Bow.gd"),
 			}
 		}
 	}
