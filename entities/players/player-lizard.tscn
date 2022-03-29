@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://assets/sfx/footstep.wav" type="AudioStream" id=1]
-[ext_resource path="res://assets/sfx/grunts.wav" type="AudioStream" id=2]
+[ext_resource path="res://assets/sfx/Scream_1.wav" type="AudioStream" id=2]
 [ext_resource path="res://assets/sfx/swipe.wav" type="AudioStream" id=3]
 [ext_resource path="res://assets/sprites/player/lizard/lizard_m_idle_anim_f0.png" type="Texture" id=4]
 [ext_resource path="res://entities/players/player-lizard.gd" type="Script" id=5]
@@ -51,7 +51,7 @@ position = Vector2( 8, 8 )
 z_index = 10
 frames = SubResource( 1 )
 animation = "idle"
-frame = 3
+frame = 1
 playing = true
 
 [node name="Camera2D" type="Camera2D" parent="."]

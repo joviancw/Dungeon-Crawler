@@ -7,5 +7,6 @@ func _physics_process(delta):
 	if collision:
 		# if there is a collision with walls, remove Bullet
 		# hitbox collision handled on Monster class
-		if collision.get_collider() is TileMap:
+		var collider = collision.get_collider();
+		if collider is TileMap || collider is Weapon:
 			queue_free()

@@ -25,6 +25,8 @@ func _ready():
 	
 func _process(_delta):
 	if Input.is_action_just_pressed("ui_accept"):
+		$MenuChange.pitch_scale = randf() - 2
+		$MenuChange.play(0.0)
 		if _selected == OPT_START:
 			# Let the player know what is happening
 			$Label0.text = "Generating Dungeon ..."
@@ -57,9 +59,13 @@ func _process(_delta):
 
 func menuSelect():
 	if Input.is_action_just_pressed("ui_down"):
+		$MenuChange.pitch_scale = randf() - 2
+		$MenuChange.play(0.0)
 		_old_selected = _selected
 		_selected += 1
 	if Input.is_action_just_pressed("ui_up"):
+		$MenuChange.pitch_scale = randf() - 2
+		$MenuChange.play(0.0)
 		_old_selected = _selected
 		_selected -= 1
 	
@@ -71,8 +77,12 @@ func menuSelect():
 func playerSelect():
 	#Player select
 	if Input.is_action_just_pressed("ui_left"):
+		$MenuChange.pitch_scale = randf() - 2
+		$MenuChange.play(0.0)
 		_playerSelected -= 1
 	if Input.is_action_just_pressed("ui_right"):
+		$MenuChange.pitch_scale = randf() - 2
+		$MenuChange.play(0.0)
 		_playerSelected += 1
 		
 	if _playerSelected >= globals.selectablePlayers.size():
