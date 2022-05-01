@@ -5,9 +5,9 @@ extends Node
 
 const SCENE_EXIT = preload("res://entities/exit.tscn")
 
-#const SCENE_MAP = preload("res://core/maps/map.tscn")
-const SCENE_MAP = preload("res://core/maps/dessert-map.tscn")
-
+const SCENE_MAP_DUNGEON = preload("res://core/maps/map.tscn")
+const SCENE_MAP_DESSERT = preload("res://core/maps/dessert-map.tscn")
+const MAP_VECTOR = [SCENE_MAP_DESSERT,SCENE_MAP_DUNGEON]
 
 
 func _ready():
@@ -35,17 +35,17 @@ func start_level():
 		
 	# This creates a new map, which in turn will call the random generator
 	# Hold map in globals for conveniance
-	globals.map = SCENE_MAP.instance()
+	globals.map = MAP_VECTOR[0].instance()
 	
 	# Random colors for deeper dungeons, adds variety 
-	if globals.depth > 1:
-		var r = randi() % 8
-		if r == 0: globals.map.self_modulate = Color(1.0, 1.8, 1.0)
-		if r == 1: globals.map.self_modulate = Color(1.6, 1.0, 1.0)
-		if r == 2: globals.map.self_modulate = Color(1.0, 1.0, 1.9)
-		if r == 3: globals.map.self_modulate = Color(1.8, 1.5, 1.0)
-		if r == 4: globals.map.self_modulate = Color(1.0, 1.8, 1.6)
-		if r == 5: globals.map.self_modulate = Color(1.5, 1.0, 1.5)
+	#if globals.depth > 1:
+	#	var r = randi() % 8
+	#	if r == 0: globals.map.self_modulate = Color(1.0, 1.8, 1.0)
+	#	if r == 1: globals.map.self_modulate = Color(1.6, 1.0, 1.0)
+	#	if r == 2: globals.map.self_modulate = Color(1.0, 1.0, 1.9)
+	#	if r == 3: globals.map.self_modulate = Color(1.8, 1.5, 1.0)
+	#	if r == 4: globals.map.self_modulate = Color(1.0, 1.8, 1.6)
+	#	if r == 5: globals.map.self_modulate = Color(1.5, 1.0, 1.5)
 		
 	# Add map to Main node
 	add_child(globals.map)

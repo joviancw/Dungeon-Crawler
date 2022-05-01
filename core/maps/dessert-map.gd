@@ -9,6 +9,9 @@ const MAX_DEPTH = 2        # Recursion depth when generating
 const TILE_IDX_UNSET = -1
 const TILE_IDX_WALL = 2
 const TILE_IDX_FLOOR = 1
+const TILE_IDX_RIGHT = 3
+const TILE_IDX_CORNER = 4
+const TILE_IDX_LEFT = 5
 
 const SCENE_TORCH = preload("res://entities/torch.tscn")
 const SCENE_CHEST = preload("res://entities/chest.tscn")
@@ -119,6 +122,7 @@ func _add_walls():
 	for y in range(-2, MAP_SIZE + 2):
 		for x in range(-2, MAP_SIZE + 2): 
 			if get_cell(x, y) == TILE_IDX_UNSET:
+				var rndCol = rng.randi_range(0, 2)
 				# Specal 1 thickness walls - doesn't look that good
 				if get_cell(x-1, y) == TILE_IDX_FLOOR and get_cell(x+1, y) == TILE_IDX_FLOOR:
 					#set_cell(x, y, TILE_IDX_WALL, false, false, false, Vector2(1, 1))
@@ -130,40 +134,59 @@ func _add_walls():
 					continue		
 									
 				# Cardinal directions
+				# North Wall
 				if get_cell(x, y+1) == TILE_IDX_FLOOR:
-					set_cell(x, y, TILE_IDX_WALL, false, false, false, Vector2(rng.randi_range(0, 2), 0))
+					
+					$Walls.set_cell(x, y-1, TILE_IDX_WALL, false, false, false, Vector2(rndCol,0))
+					set_cell(x, y, TILE_IDX_WALL, false, false, false, Vector2(rndCol,rng.randi_range(1,3)))
 					if rng.randf() <= 0.2:
 						_add_torch(x, y)
 					continue
 				if get_cell(x, y-1) == TILE_IDX_FLOOR:
 					# "north" walls are a special case due to fake perspective
 					if get_cell(x-1, y) == TILE_IDX_FLOOR:
-						set_cell(x, y, TILE_IDX_WALL, false, false, false, Vector2(0, 2))
+						$Walls.set_cell(x, y-1, TILE_IDX_CORNER, false, false, false, Vector2(0, 0))
+						set_cell(x, y, TILE_IDX_CORNER, false, false, false, Vector2(0, 1))
 					elif get_cell(x+1, y) == TILE_IDX_FLOOR:
-						set_cell(x, y, TILE_IDX_WALL, false, false, false, Vector2(2, 2))						
+						$Walls.set_cell(x, y-1, TILE_IDX_CORNER, false, false, false, Vector2(1, 0))
+						set_cell(x, y, TILE_IDX_CORNER, false, false, false, Vector2(1, 1))					
 					else:
-						set_cell(x, y, TILE_IDX_WALL, false, false, false, Vector2(rng.randi_range(0, 2), 2))
+						$Walls.set_cell(x, y-1, TILE_IDX_WALL, false, false, false, Vector2(rndCol, 0))
+						set_cell(x, y, TILE_IDX_WALL, false, false, false, Vector2(rndCol, rng.randi_range(1,3)))
 					continue
 				if get_cell(x+1, y) == TILE_IDX_FLOOR:
-					set_cell(x, y, TILE_IDX_WALL, false, false, false, Vector2(0, rng.randi_range(0, 2)))
+					$Walls.set_cell(x, y, TILE_IDX_LEFT, false, false, false, Vector2(0, 1))
 					continue
 				if get_cell(x-1, y) == TILE_IDX_FLOOR:
-					set_cell(x, y, TILE_IDX_WALL, false, false, false, Vector2(2, rng.randi_range(0, 2)))
+					$Walls.set_cell(x, y, TILE_IDX_RIGHT, false, false, false, Vector2(0, 1))
 					continue		
 									
 				# Diagonals		
+				# Bottom Left
 				if get_cell(x+1, y-1) == TILE_IDX_FLOOR:
-					set_cell(x, y, TILE_IDX_WALL, false, false, false, Vector2(0, 2))
+					$Walls.set_cell(x, y, TILE_IDX_LEFT, false, false, false, Vector2(0, 2))
 					continue
+				# Bottom Right
 				if get_cell(x-1, y-1) == TILE_IDX_FLOOR:
-					set_cell(x, y, TILE_IDX_WALL, false, false, false, Vector2(2, 2))
+					$Walls.set_cell(x, y, TILE_IDX_RIGHT, false, false, false, Vector2(0, 2))
 					continue
+				# Top Left
 				if get_cell(x+1, y+1) == TILE_IDX_FLOOR:
-					set_cell(x, y, TILE_IDX_WALL, false, false, false, Vector2(0, 0))
+					if get_cell(x+1, y) == TILE_IDX_FLOOR:
+						$Walls.set_cell(x, y, TILE_IDX_CORNER, false, false, false, Vector2(1, 2))
+					else:
+						$Walls.set_cell(x, y, TILE_IDX_LEFT, false, false, false, Vector2(0, 1))
+						$Walls.set_cell(x, y-1, TILE_IDX_LEFT, false, false, false, Vector2(0, 0))
 					continue
+				# Top Right
 				if get_cell(x-1, y+1) == TILE_IDX_FLOOR:
-					set_cell(x, y, TILE_IDX_WALL, false, false, false, Vector2(2, 0))
+					if get_cell(x-1, y) == TILE_IDX_FLOOR:
+						$Walls.set_cell(x, y, TILE_IDX_CORNER, false, false, false, Vector2(0, 2))
+					else:
+						$Walls.set_cell(x, y, TILE_IDX_RIGHT, false, false, false, Vector2(0, 1))
+						$Walls.set_cell(x, y-1, TILE_IDX_RIGHT, false, false, false, Vector2(0, 0))
 					continue
+				
 
 #
 # Place a torch on a south facing wall
